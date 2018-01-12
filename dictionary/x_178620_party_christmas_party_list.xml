@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<database>
+    <element label="Christmas Party List" max_length="40" name="x_178620_party_christmas_party_list" type="collection">
+        <element calculation="(function calculatedFieldValue(current) {&#13;&#10;&#13;&#10;&#9;// Add your code here&#13;&#10;&#9;return '';  // return the calculated value&#13;&#10;&#13;&#10;})(current);" choice="1" display="true" label="Guest" mandatory="true" max_length="32" name="guest" reference="sys_user" type="reference">
+            <choice/>
+        </element>
+        <element choice="1" label="Chicken" max_length="40" name="u_chicken" type="integer">
+            <choice>
+                <element label="1" sequence="0" value="1"/>
+                <element label="2" sequence="1" value="2"/>
+                <element label="3" sequence="2" value="3"/>
+                <element label="4" sequence="3" value="4"/>
+                <element label="5" sequence="4" value="5"/>
+            </choice>
+        </element>
+        <element attributes="edge_encryption_enabled=true" default="Please select one entree for each member of your party:" label="Description" max_length="40" name="u_description" type="string"/>
+        <element label="New Integer" max_length="40" name="u_integer_1" type="integer"/>
+        <element label="New Integer" max_length="40" name="u_integer_2" type="integer"/>
+        <element choice="3" default="1" label="Number in your party:" mandatory="true" max_length="40" name="u_number_in_party" type="integer">
+            <choice>
+                <element label="1" sequence="0" value="1"/>
+                <element label="2" sequence="1" value="2"/>
+                <element label="3" sequence="2" value="3"/>
+                <element label="4" sequence="3" value="4"/>
+                <element label="5" sequence="4" value="5"/>
+                <element label="6" sequence="5" value="6"/>
+                <element label="7" sequence="6" value="7"/>
+                <element label="8" sequence="7" value="8"/>
+                <element label="9" sequence="8" value="9"/>
+                <element label="10" sequence="9" value="10"/>
+            </choice>
+        </element>
+        <element choice="1" label="Salmon" max_length="40" name="u_salmon" type="integer">
+            <choice>
+                <element label="1" sequence="0" value="1"/>
+                <element label="2" sequence="1" value="2"/>
+                <element label="3" sequence="2" value="3"/>
+                <element label="4" sequence="3" value="4"/>
+                <element label="5" sequence="4" value="5"/>
+            </choice>
+        </element>
+        <element choice="1" label="Steak" max_length="40" name="u_steak" type="integer">
+            <choice>
+                <element label="1" sequence="0" value="1"/>
+                <element label="2" sequence="1" value="2"/>
+                <element label="3" sequence="2" value="3"/>
+                <element label="4" sequence="3" value="4"/>
+                <element label="5" sequence="4" value="5"/>
+            </choice>
+        </element>
+        <element choice="1" label="Vegetarian" max_length="40" name="u_vegetarian" type="integer">
+            <choice>
+                <element label="1" sequence="0" value="1"/>
+                <element label="2" sequence="1" value="2"/>
+                <element label="3" sequence="2" value="3"/>
+                <element label="4" sequence="3" value="4"/>
+                <element label="5" sequence="4" value="5"/>
+            </choice>
+        </element>
+        <index name="index">
+            <element name="guest"/>
+        </index>
+    </element>
+</database>
