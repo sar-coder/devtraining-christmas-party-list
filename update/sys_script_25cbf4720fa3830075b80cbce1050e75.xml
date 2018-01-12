@@ -32,11 +32,12 @@
 	var _total_entrees = current.u_chicken + current.u_steak + current.u_salmon + current.u_vegetarian;
 	
 	if(_total_entrees != current.u_number_in_party) {
-		gs.addErrorMessage('The total number of entrees requested must match the number in your party');
+		gs.addErrorMessage('The total number of entrees requested must match the number in your party.');
 		current.setAbortAction(true);
 	}
 
-})(current, previous);]]></script>
+})(current, previous);
+]]></script>
         <sys_class_name>sys_script</sys_class_name>
         <sys_created_by>admin</sys_created_by>
         <sys_created_on>2018-01-12 19:20:35</sys_created_on>
@@ -44,7 +45,7 @@
         <sys_domain>global</sys_domain>
         <sys_domain_path>/</sys_domain_path>
         <sys_id>25cbf4720fa3830075b80cbce1050e75</sys_id>
-        <sys_mod_count>3</sys_mod_count>
+        <sys_mod_count>4</sys_mod_count>
         <sys_name>check_totals</sys_name>
         <sys_overrides/>
         <sys_package display_value="Company Christmas Party" source="x_178620_party">a380acb20f63830075b80cbce1050e22</sys_package>
@@ -53,7 +54,7 @@
         <sys_scope display_value="Company Christmas Party">a380acb20f63830075b80cbce1050e22</sys_scope>
         <sys_update_name>sys_script_25cbf4720fa3830075b80cbce1050e75</sys_update_name>
         <sys_updated_by>admin</sys_updated_by>
-        <sys_updated_on>2018-01-12 19:27:23</sys_updated_on>
+        <sys_updated_on>2018-01-12 22:36:58</sys_updated_on>
         <template/>
         <when>before</when>
     </sys_script>
