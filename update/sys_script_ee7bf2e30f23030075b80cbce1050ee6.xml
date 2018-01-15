@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<record_update sys_domain="global" table="sys_script">
+    <sys_script action="INSERT_OR_UPDATE">
+        <abort_action>false</abort_action>
+        <access>package_private</access>
+        <action_delete>false</action_delete>
+        <action_insert>false</action_insert>
+        <action_query>true</action_query>
+        <action_update>false</action_update>
+        <active>true</active>
+        <add_message>false</add_message>
+        <advanced>true</advanced>
+        <change_fields>false</change_fields>
+        <client_callable>false</client_callable>
+        <collection>x_178620_party_christmas_party_list</collection>
+        <condition/>
+        <description/>
+        <execute_function>false</execute_function>
+        <filter_condition/>
+        <is_rest>false</is_rest>
+        <message/>
+        <name>Check for existing list</name>
+        <order>100</order>
+        <priority>100</priority>
+        <rest_method/>
+        <rest_method_text/>
+        <rest_service/>
+        <rest_service_text/>
+        <rest_variables/>
+        <role_conditions/>
+        <script><![CDATA[(function executeRule(current, previous /*null when async*/) {
+	
+	//gs.addInfoMessage("sys_id: " + gs.getUserID());
+	//gs.addInfoMessage("table: " + current.getTableName() /*current.sys_class_name*/);
+	
+	
+	//getFieldValues('x_178620_party_christmas_party_list');
+	
+
+	try {
+		var _data = new GlideRecord('x_178620_party_christmas_party_list');
+		_data.get('guest', gs.getUserID());
+		_data.query();
+		
+		//gs.addInfoMessage("row cnt: " + _data.getRowCount());
+		
+		if(_data.getRowCount() > 0) {
+			_data.next();
+			//gs.addInfoMessage("found match for " + _data.guest);
+			//This user has alredy completed form so redirect them to the existing record
+			
+			//WOW SN seems to get confused with redirects - redirects Studio to list record and can't nav to main menu
+			gs.addInfoMessage("Found existing record for current user and I wanted to redirect the user to the existing record but SN seems to misbehave!");
+			//gs.setRedirect('https://dev38293.service-now.com/nav_to.do?uri=x_178620_party_christmas_party_list.do?sys_id=' + _data.guest);
+		}
+/*
+		while(_data.next()) {
+			
+			if(_data.guest == gs.getUserID()) {
+				//This user has alredy created a record so redirect them to the record
+				//gs.setRedirect('https://dev38293.service-now.com/nav_to.do?uri=x_178620_party_christmas_party_list.do?sys_id=' + _data.guest);
+				gs.addInfoMessage("found match for " + _data.guest);
+			}
+			
+			//gs.addInfoMessage('guest sys_id: ' + _data.guest);
+		}
+*/		
+	}
+	catch(e) {
+		gs.addErrorMessage("Error: " + e.message);
+	}
+	
+	
+	gs.addInfoMessage("done.");
+	
+	//This doesn't seem to work correctly, at first didn't allow me to open studio and now i can go to list page.
+	//gs.setRedirect('https://dev38293.service-now.com/nav_to.do?uri=x_178620_party_christmas_party_list.do?sys_id=565bb0720fa3830075b80cbce1050ed6');
+	
+	//
+
+})(current, previous);
+
+function getFieldValues(pTable) {
+	var target = new GlideRecord(pTable);
+	//target.addQuery('number', incNumber);
+	target.setLimit(1);
+	target.query();
+	target.next();
+	gs.addInfoMessage("starting");
+	var gru = new GlideRecordUtil();
+	gs.addInfoMessage("ready");
+
+	var fieldList = gru.getFields(target);
+	gs.info(fieldList);		
+
+	/*		
+		while(target.next()) {
+			var fieldNames = gru.getFields(target);
+			for(var i = 0; i <= fieldNames.length; i++) {
+				//gs.print("The field: " + fieldNames[i] + " on the current record has a value of: " + target.getValue(fieldNames[i]));
+			}
+		}
+*/		
+	gs.addInfoMessage("done with getFieldValues().");
+
+}
+]]></script>
+        <sys_class_name>sys_script</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2018-01-15 12:44:49</sys_created_on>
+        <sys_customer_update>false</sys_customer_update>
+        <sys_domain>global</sys_domain>
+        <sys_domain_path>/</sys_domain_path>
+        <sys_id>ee7bf2e30f23030075b80cbce1050ee6</sys_id>
+        <sys_mod_count>44</sys_mod_count>
+        <sys_name>Check for existing list</sys_name>
+        <sys_overrides/>
+        <sys_package display_value="Company Christmas Party" source="x_178620_party">a380acb20f63830075b80cbce1050e22</sys_package>
+        <sys_policy/>
+        <sys_replace_on_upgrade>false</sys_replace_on_upgrade>
+        <sys_scope display_value="Company Christmas Party">a380acb20f63830075b80cbce1050e22</sys_scope>
+        <sys_update_name>sys_script_ee7bf2e30f23030075b80cbce1050ee6</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2018-01-15 16:18:30</sys_updated_on>
+        <template/>
+        <when>before_display</when>
+    </sys_script>
+    <sys_translated_text action="delete_multiple" query="documentkey=ee7bf2e30f23030075b80cbce1050ee6"/>
+</record_update>

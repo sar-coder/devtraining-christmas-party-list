@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<record_update sys_domain="global" table="sys_script_client">
+    <sys_script_client action="INSERT_OR_UPDATE">
+        <active>true</active>
+        <applies_extended>false</applies_extended>
+        <condition/>
+        <description>Auto load user's name and email addres into form.</description>
+        <field>u_chicken</field>
+        <global>true</global>
+        <messages/>
+        <name>Auto-populate User and Email</name>
+        <order/>
+        <script><![CDATA[function onLoad() {
+	//jslog('[sar] ' + g_user.userID);
+	
+	g_form.setValue('guest', g_user.userID);
+	
+	var _ajaxGetEmail = new GlideAjax('GetUserData');
+	//_ajaxGetEmail.addParam('sysparm_name',   'getEmailAddress');
+	_ajaxGetEmail.addParam('sysparm_name',   'getData');
+	_ajaxGetEmail.addParam('sysparm_userID', g_user.userID);
+	//_ajaxGetEmail.getXML(populateEmail);
+	_ajaxGetEmail.getXML(populateData);
+	
+	function populateEmail(pResponse) {
+		var _email = pResponse.responseXML.documentElement.getAttribute('answer');
+		g_form.setValue('u_email', _email);
+	}
+	function populateData(pResponse) {
+		var _data = pResponse.responseXML.documentElement.getAttribute('answer');
+		//g_form.setValue('u_email', _email);
+		//_data = new JSON().decode(_data);
+		
+		//var _parser = new JSONParser();
+		//_data = _parser.parse(_data);		
+		//g_form.setValue('u_email', _data.email);
+		var _list_data = _data.split('|');
+		if(g_form.getValue('u_email').trim().length == 0) {
+			g_form.setValue('u_email', _list_data[0]);
+		}
+		if(g_form.getValue('u_title').trim().length == 0) {
+			g_form.setValue('u_title', _list_data[1]);
+		}
+		
+		jslog(_data);
+	}
+}]]></script>
+        <sys_class_name>sys_script_client</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2018-01-12 23:38:58</sys_created_on>
+        <sys_customer_update>false</sys_customer_update>
+        <sys_domain>global</sys_domain>
+        <sys_domain_path>/</sys_domain_path>
+        <sys_id>92e67d720f63030075b80cbce1050e1d</sys_id>
+        <sys_mod_count>14</sys_mod_count>
+        <sys_name>Auto-populate User and Email</sys_name>
+        <sys_overrides/>
+        <sys_package display_value="Company Christmas Party" source="x_178620_party">a380acb20f63830075b80cbce1050e22</sys_package>
+        <sys_policy/>
+        <sys_replace_on_upgrade>false</sys_replace_on_upgrade>
+        <sys_scope display_value="Company Christmas Party">a380acb20f63830075b80cbce1050e22</sys_scope>
+        <sys_update_name>sys_script_client_92e67d720f63030075b80cbce1050e1d</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2018-01-13 01:05:06</sys_updated_on>
+        <table>x_178620_party_christmas_party_list</table>
+        <type>onLoad</type>
+        <ui_type>10</ui_type>
+        <view/>
+    </sys_script_client>
+</record_update>

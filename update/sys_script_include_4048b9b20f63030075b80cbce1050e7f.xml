@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<record_update table="sys_script_include">
+    <sys_script_include action="INSERT_OR_UPDATE">
+        <access>package_private</access>
+        <active>true</active>
+        <api_name>x_178620_party.GetUserData</api_name>
+        <client_callable>true</client_callable>
+        <description>Get user data not available to client-side (g_user) from database.</description>
+        <name>GetUserData</name>
+        <script><![CDATA[var GetUserData = Class.create();
+GetUserData.prototype = Object.extendsObject(global.AbstractAjaxProcessor, {
+    type: 'GetUserData',
+	
+	getEmailAddress: function(){
+		var _user = new GlideRecord('sys_user');
+		_user.get(this.getParameter('sysparm_userID'));
+		return String(_user.email);
+	},
+	
+	getTitle: function(){
+		var _user = new GlideRecord('sys_user');
+		_user.get(this.getParameter('sysparm_userID'));
+		return String(_user.title);
+	},
+	
+	getData: function(){
+		var _user = new GlideRecord('sys_user');
+		_user.get(this.getParameter('sysparm_userID'));
+		//var _json = new global.JSON().encode(_user);
+		//var _json = {'email':_user.email, 'title':_user.title};
+		//return _json + "";
+		return _user.email + '|' + _user.title;
+	},
+	
+	
+});]]></script>
+        <sys_class_name>sys_script_include</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2018-01-12 23:51:44</sys_created_on>
+        <sys_customer_update>false</sys_customer_update>
+        <sys_id>4048b9b20f63030075b80cbce1050e7f</sys_id>
+        <sys_mod_count>16</sys_mod_count>
+        <sys_name>GetUserData</sys_name>
+        <sys_package display_value="Company Christmas Party" source="x_178620_party">a380acb20f63830075b80cbce1050e22</sys_package>
+        <sys_policy>read</sys_policy>
+        <sys_replace_on_upgrade>false</sys_replace_on_upgrade>
+        <sys_scope display_value="Company Christmas Party">a380acb20f63830075b80cbce1050e22</sys_scope>
+        <sys_update_name>sys_script_include_4048b9b20f63030075b80cbce1050e7f</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2018-01-13 00:45:58</sys_updated_on>
+    </sys_script_include>
+</record_update>

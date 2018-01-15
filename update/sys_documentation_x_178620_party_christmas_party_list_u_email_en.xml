@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<record_update>
+    <sys_documentation element="u_email" label="Email Address" language="en" table="x_178620_party_christmas_party_list">
+        <sys_documentation action="INSERT_OR_UPDATE">
+            <element>u_email</element>
+            <help/>
+            <hint/>
+            <label>Email Address</label>
+            <language>en</language>
+            <name>x_178620_party_christmas_party_list</name>
+            <plural>Email Address</plural>
+            <sys_class_name>sys_documentation</sys_class_name>
+            <sys_created_by>admin</sys_created_by>
+            <sys_created_on>2018-01-12 23:17:35</sys_created_on>
+            <sys_customer_update>false</sys_customer_update>
+            <sys_id>9292b5fe0f23030075b80cbce1050eb4</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_name>Email Address</sys_name>
+            <sys_package display_value="Company Christmas Party" source="x_178620_party">a380acb20f63830075b80cbce1050e22</sys_package>
+            <sys_policy/>
+            <sys_replace_on_upgrade>false</sys_replace_on_upgrade>
+            <sys_scope display_value="Company Christmas Party">a380acb20f63830075b80cbce1050e22</sys_scope>
+            <sys_update_name>sys_documentation_x_178620_party_christmas_party_list_u_email_en</sys_update_name>
+            <sys_updated_by>admin</sys_updated_by>
+            <sys_updated_on>2018-01-12 23:17:35</sys_updated_on>
+            <url/>
+            <url_target/>
+        </sys_documentation>
+    </sys_documentation>
+</record_update>
